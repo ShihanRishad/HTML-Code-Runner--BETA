@@ -1,0 +1,144 @@
+.cm-s-eclipse span.cm-meta {
+    color: #28cf00;
+    transition: all 0.5s;
+}
+
+.cm-s-eclipse span.cm-keyword {
+    line-height: 1em;
+    font-weight: 700;
+    color: #7f0055;
+    transition: all 0.5s;
+    
+}
+
+.cm-s-eclipse span.cm-atom {
+    color: #219;
+    transition: all 0.5s; 
+    
+}
+
+.cm-s-eclipse span.cm-number {
+    color: #164;
+    transition: all 0.5s;
+    
+}
+
+.cm-s-eclipse span.cm-def {
+    color: #00f;
+    transition: all 0.5s;
+    
+}
+
+.cm-s-eclipse span.cm-variable {
+    color: #000;
+    transition: all 0.5s;
+    
+}
+
+.cm-s-eclipse span.cm-variable-2 {
+    color: #0000c0;
+    transition: all 0.5s;
+    
+}
+
+.cm-s-eclipse span.cm-type,
+.cm-s-eclipse span.cm-variable-3 {
+    color: #0000c0;
+    transition: all 0.5s;
+    
+}
+
+.cm-s-eclipse span.cm-property {
+    color: #0085ae;
+    transition: all 0.5s;
+    
+}
+
+.cm-s-eclipse span.cm-operator {
+    color: #000;
+    transition: all 0.5s;
+}
+
+.cm-s-eclipse span.cm-comment {
+    color: #00000069;
+    transition: all 0.5s;
+}
+
+.cm-s-eclipse span.cm-string {
+    color: #ff0000;
+    transition: all 0.5s;
+}
+
+.cm-s-eclipse span.cm-string-2 {
+    color: #f50;
+    transition: all 0.5s;
+}
+
+.cm-s-eclipse span.cm-qualifier {
+    color: #4acb9d;
+    transition: all 0.5s;
+}
+
+.cm-s-eclipse span.cm-builtin {
+    color: #30a;
+    transition: all 0.5s;
+}
+
+/* .cm-s-eclipse span.cm-bracket {
+    color: #cc7; 
+    transition: all 0.5s;
+} */
+
+/* .cm-s-eclipse span.cm-tag {
+    color: #170;
+    transition: all 0.5s;
+} */
+
+.cm-s-eclipse span.cm-attribute {
+    color: #7900d4;
+    transition: all 0.5s;
+}   
+   
+.cm-s-eclipse span.cm-link {
+    color: #219;
+    transition: all 0.5s;
+}
+
+.cm-s-eclipse span.cm-error {
+    color: red;
+    transition: all 0.5s;
+}
+
+.cm-s-eclipse .CodeMirror-activeline-background {
+    background: #e8f2ff;
+    transition: all 0.5s;
+}
+
+.cm-s-eclipse .CodeMirror-matchingbracket {
+    outline: 1px solid grey;
+    color: #000!important;
+    transition: all 0.5s;
+}
+
+span.cm-tag.cm-bracket {
+    color: green;
+    transition: all 0.5s;
+}
+
+.cm-tag {
+    color: brown;
+    transition: all 0.5s;
+}
+
+span {
+
+}
+
+@keyframes fadeInS {
+  0% {
+    opacity: 0;
+   }
+  100% {
+     opacity: 1;
+   }
+}

@@ -1,0 +1,3026 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- Load CodeMirror and the modes for HTML, CSS and JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/codemirror.min.css">
+  <!-- Include the CodeMirror JavaScript file -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/codemirror.min.js"></script>
+  <!-- Include the mode files for XML, JavaScript and CSS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/mode/css/css.min.js"></script>
+  <!-- Include the htmlmixed mode file -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/mode/htmlmixed/htmlmixed.js"></script>
+  <!-- Include the theme file for your preferred theme -->
+  <link rel="stylesheet" href="CodeMirror/theme/eclipse.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/theme/dracula.min.css">  
+  <!-- Use cdnjs libraries for CodeMirror -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/theme/eclipse.min.css"></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/htmlmixed/htmlmixed.min.js"></script>
+  <!-- Use emmet extension for faster HTML and CSS coding -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/edit/closetag.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/edit/matchtags.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/edit/closebrackets.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/hint/show-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/hint/html-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/hint/css-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/hint/javascript-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/lint/lint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/lint/html-lint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/lint/css-lint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/lint/javascript-lint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/selection/active-line.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/search/search.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/search/searchcursor.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/search/jump-to-line.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/search/match-highlighter.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/fold/foldcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/fold/foldgutter.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/fold/brace-fold.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/fold/xml-fold.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/fold/indent-fold.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/fold/markdown-fold.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/fold/comment-fold.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/display/placeholder.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/display/panel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/display/rulers.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/scroll/scrollpastend.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/scroll/annotatescrollbar.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/scroll/simplescrollbars.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/dialog/dialog.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/comment/comment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/wrap/hardwrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/edit/continuelist.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/mode/overlay.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/mode/multiplex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/mode/simple.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/runmode/runmode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/runmode/colorize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/keymap/sublime.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/keymap/emacs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/keymap/vim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/emmet/1.6.3/emmet.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/addon/edit/emmet.min.js"></script>
+<title>HTML Code Runner</title>
+<style>
+
+body {
+ /* text-align: center; */
+  height:100%;
+  background-color: #f2f2f2;
+  overflow: hidden;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+
+ h1 {
+  font-size: 35pt;
+  font-family: SolaimanLipi;
+  margin-top: -10px;
+  position: relative;
+  font-family: sans serif;
+  text-align: center;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+  .headborder {
+   height: 0px;
+   border: 1px solid black;
+   opacity: 50%;
+   margin-top: -20px;
+   margin-bottom: 0px;
+   position: relative;
+   transition: background-color 0.5s, color 0.5s;
+}
+
+  .topcontainer {
+   height: 140px;
+   border: none;
+   background-image: linear-gradient(to top, #D9D9D9, #F2F2F2);
+   display: block;
+   position: relative;
+   margin-bottom: 20px;
+   text-align: center;
+   top: 0;
+   left: 0;
+   transition: background-color 0.5s, color 0.5s, background-image 0.5s;
+}
+
+/* Use a flexbox layout to make the textarea and iframe responsive */
+.container {
+  display: flex;
+  height: 72vh;
+  border: none;
+  position: relative;
+}
+
+/* Add some padding and border to the textarea and iframe */
+/* textarea, iframe {
+  border: none;
+  height: 70vh;
+  padding: 1vh;
+  box-shadow: 0 0 2px 1px grey;
+  position: relative;
+} */
+
+/* Use a monospace font for the textarea */
+ #script {
+   font-family: monospace;
+   width: 49%;
+   border-radius: 20px;
+   resize: none;
+   outline: none;
+   transition: background-color 0.5s, color 0.5s, box-shadow 0.3s;
+}
+
+#script:focus-visible {
+    box-shadow: 0px 0px 6px 2px grey;
+}
+
+.script::-webkit-resizer {
+  /* Change the size and color of the resize icon */
+  background: transparent;
+  display: none;
+  cursor: default;
+}
+
+.script::-webkit-scrollbar {
+  width: 10px;
+  background-color: #e6e6e6;
+  border-radius: 1000px;
+  height: 10px;
+  cursor: default;
+}
+
+.script::-webkit-scrollbar-thumb {
+  background-color: #8e8e8e;
+  width: 2px;
+  border-radius: 100px;
+}
+
+
+iframe {
+  width: 49%;
+  background-color: white;
+  border-radius: 20px;
+  border: none;
+  height: 70vh;
+  padding: 1vh;
+  box-shadow: 0 0 2px 1px grey;
+  position: relative;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+/* Add some margin and background color to the button */
+#run {
+  margin: 7px;
+  background-color: #92D050;
+  color: white;
+  border: none;
+  height: 47px;
+  width: 150px;
+  font-size: 16pt;
+  border-radius: 1000px;
+  font-family: SolaimanLipi;
+  position: relative;
+  transition: transform 0.2s ease-in-out, box-shadow 0.5s, background-color 0.5s;
+  box-shadow: inset 2px 4px 10px 1px greenyellow;
+  cursor: pointer;
+}
+
+#run span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#run span:after {
+    content: '\0bb';
+    position: absolute;
+    opacity: 0;
+    top: -14px;
+    right: -30px;
+    font-size: 30pt;
+    transition: 0.5s;
+}
+
+#run:hover span {
+  padding-right: 25px;
+}
+
+#run:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* Add some animation to the button */
+#run:hover {
+  transition: all 0.3s;
+}
+
+#run:active {
+  transform: scale(0.9);
+}
+
+  .space {
+   width: 2%;
+}
+
+ .settingsicon {
+   height: 40px;
+   widht: 40px;
+   position: absolute;
+   top: 0;
+   left: 0;
+   transition: background-color 0.5s, color 0.5s,;
+}
+
+
+  .settingsbtn {
+   border: none;
+   height: 40px;
+   width: 40px;   
+   position: absolute;
+   background-color: transparent;
+   right: 15px;
+   margin: 7px;
+   cursor: pointer;
+   transition: background-color 0.5s, color 0.5s;
+}
+
+
+  .settingsbtn:hover {
+    animation: spin 0.2s;
+}
+
+
+
+  @keyframes spin {
+   0% {
+    transform: rotate(0deg);
+    }
+   100% {
+    transform: rotate(-60deg);
+}}
+
+     .settingsbtn::after {
+    content: attr(hover);
+    position: absolute;
+    bottom: 0%;
+    left: -35%;
+    transform: translateX(-50%);
+    background-color: #767676de;
+    color: #fff;
+    padding: 10px;
+    padding-top: 7px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s, bottom 0.3s, transform 0.2s;
+    height: 32%;
+    font-size: 10pt;
+    transform: scale(0.2);
+        }
+
+       .settingsbtn:hover::after {
+    transition-delay: 0.2s;
+    opacity: 1;
+    z-index: 10;
+    bottom: -76%;
+    transform: scale(1.0);
+        }
+
+
+
+ .menudark {
+     height: 100%;
+     width: 100%;
+     position: fixed;
+     top: 0;
+     left: 0;
+     background-color: black;
+     opacity: 25%;
+     display: none;
+     z-index: 3;
+     animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 25%;
+  }
+}
+
+    @keyframes fadeOut {
+  from {
+    opacity: 25%;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.settings {
+    display: none;
+    height: 386px;
+    width: 330px;
+    border: none;
+    position: absolute;
+    right: 36vw;
+    top: 21vh;
+    margin: auto;
+    padding: 0px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: -10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px 3px grey;;
+    justify-content: center;
+    text-align: center;
+    z-index: 3;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    animation: appear 0.5s ease-in-out;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+    @keyframes disappear {
+   0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}
+
+.settings select {
+    height: 35px;
+    width: 310px;
+    margin-bottom: 33px;
+    border: none;
+    border-radius: 1000px;
+    text-align: center;
+    font-size: 15pt;
+    cursor: pointer;
+    font-family: sans serif;
+    background-color: #56c656;
+    color: white;
+    transition: width 0.2s ease-in-out, background-color 0.5s, color 0.5s;
+}
+
+    .settings select:hover {
+      width: 325px;
+}
+
+
+   @keyframes changeWidth {
+      0% {
+        width: 310px;
+        }
+      100% {
+        width: 325px;
+        }
+}
+
+    .settings select:active {
+      width: 325px;
+}
+
+
+   .settingsclose {
+     height: 40px;
+     width: 40px;
+     border: none;
+     border-radius: 50%;
+     background-color: black;
+     color: white;
+     font-width: bold;
+     cursor: pointer;
+     position: absolute;
+     right: -10px;
+     top: -10px;
+     font-size: 15pt;
+     z-index: 5;
+     animation: expand 1s ease-in-out;
+     transition: transform 0.2s ease-in-out;
+     padding-top: 5px;
+}
+
+   .settingsclose:hover {
+     transform: scale(1.15);
+}
+
+   .settingsclose:active {
+     background-color: red;
+     animation: hide 1s ease-in-out;
+}
+
+   @keyframes hide {
+    0% {
+       transform: scale(1)
+       opacity: 1;
+      }
+    100% {
+       transform: scale(0);
+       opacity: 0;
+      }
+}
+
+@keyframes expand {
+    0% {
+     transform: rotate(90deg);
+     transform: scale(0.001);
+     opacity: 0;
+     }
+     100% {
+      transform: rotate(0deg);
+      transform: scale(1.0);
+      opacity: 1;
+      }
+}
+
+   #themelabel, #fontsizelabel, #wraplabel, .settingslabel {
+    font-size: 16pt;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+#wraplabel {
+    /* position: absolute; */
+    margin-left: 40px;
+}
+
+  .settingshead {
+    font-family: sans serif;
+    font-size: 25pt;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+      .downloadbtn {
+       border: none;
+       background-color: transparent;
+       position: absolute;
+       right: 73px;
+       margin-top: 7px;
+       height: 40px;
+       width: 40px;
+       padding: unset;
+       cursor: pointer;
+       transition: transform 0.2s, background-color 0.5s, color 0.5s;
+}
+
+      .downloadbtn:hover {
+        transform: scale(1.1); /* Use transform property */
+        }
+
+      .downloadbtn:active {
+        transform: scale(0.9); /* Use transform property */
+        }
+
+         .downloadbtn::after {
+    content: attr(hover);
+    position: absolute;
+    bottom: 0%;
+    left: -17%;
+    transform: translateX(-50%);
+    background-color: #767676de;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s, bottom 0.3s, transform 0.2s;
+    height: 38%;
+    font-size: 10pt;
+    transform: scale(0.0001);
+}
+
+        .downloadbtn:hover::after {
+    transition-delay: 0.2s;
+    opacity: 1;
+    z-index: 10;
+    bottom: -65%;
+    transform: scale(1.0);
+        }
+
+      .downloadicon {
+         height: 40px;
+         width: 40px;
+}
+
+      #downloadinfo {
+    height: 292px;
+    width: 286px;
+    border: none;
+    position: absolute;
+    right: 76px;
+    top: 131px;
+    margin: auto;
+    /* padding: 0px; */
+    padding-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: -10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px 2px grey;
+    z-index: 4;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: flyIns 0.3s ease-in-out; /* Updated duration */
+}
+
+   @keyframes flyIns {
+     0% {
+      transform: translate(80px, -130px) scale(0.5); /* Corrected syntax */
+      opacity: 0;
+      
+  }
+
+     40% {
+       opacity: 0.1;
+       }
+
+    100% {
+      transform: translate(0px) scale(1); /* Corrected syntax */
+      opacity: 1;
+      height: 292px;
+  }
+}
+
+   @keyframes flyOuts {
+     0% {
+      transform: translate(0px) scale(1); /* Corrected syntax */
+      opacity: 1;
+      height: 292px;
+  }
+
+     30% {
+       opacity: 0.9;
+       }
+
+    100% {
+     /* transform: translateY(-130px); 
+      opacity: 0;
+      height: 100px; */
+
+      transform: translate(100px, -130px) scale(0.5); /* Corrected syntax */
+      opacity: 0;
+  }
+}
+       
+
+
+        #downloadfinal {
+    position: absolute;
+    bottom: 6%;
+    height: 35px;
+    width: 86%;
+    border: none;
+    border-radius: 1000px;
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: width 0.3s;
+}
+
+      #downloadfinal:hover {
+         width: 90%;
+        }
+
+     #downloadhead {
+    top: -7px;
+    font-family: sans serif;
+    width: 100%;
+    font-size: 25px;
+    position: absolute;
+       }
+
+#filename {
+  height: 36px;
+  width: 80%;
+  background-color: white;
+  border: 2px solid limegreen;
+  border-radius: 1000px;
+  padding-left: 20px;
+  outline: none;
+  transition: border 0.3s, width 0.3s;
+}
+
+#filename:focus {
+  border-color: darkgreen;
+  width: 85%;
+}
+
+    #filename:hover {
+       border-color: green;
+}
+
+      #downloadp {
+    margin-top: 62px;
+    margin-bottom: 31px;
+}
+
+     #downloadclose {
+     height: 100%;
+     width: 100%;
+     position: fixed;
+     top: 0;
+     left: 0;
+     background-color: black;
+     opacity: 0%;
+     z-index: 4;
+     display: none;
+}
+
+    .previewicon {
+     height: 40px;
+     width: 40px;
+    }
+
+      .previewbtn {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    position: absolute;
+    right: 131px;
+    margin-top: 7px;
+    background-color: transparent;
+    border: none;
+    transition: transform 0.3s;
+}
+
+    .previewbtn::after {
+    content: attr(hover);
+    position: absolute;
+    bottom: 0%;
+    left: -37%;
+    transform: translateX(-50%);
+    background-color: #767676de;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s, bottom 0.3s, transform 0.2s;
+    height: 38%;
+    font-size: 10pt;
+    transform: scale(0.0001);
+}
+
+        .previewbtn:hover::after {
+    transition-delay: 0.2s;
+    opacity: 1;
+    z-index: 10;
+    bottom: -65%;
+    transform: scale(1.0);
+        }
+
+     .previewbtn:hover {
+     // transform: scale(1.1);
+     }
+    
+     .previewbtn:active {
+    //  transform: scale(0.9);
+}
+
+#previewbtn:active #previewiconarrow {
+    transform: translate(5px, -4px) translate3d(0px, 0px, 0px) !important;
+    opacity: 0.5;
+}
+
+#previewbtn:hover #previewiconarrow {
+    transform: translate(-5px, 4px) perspective(93px) translate3d(2px, 0px, -4px);
+}
+
+#previewiconarrow {
+    height: 24px;
+    width: 23px;
+    position: absolute;
+    left: 17px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+
+       /* Style for the switch container */
+.switch {
+    position: relative;
+    right: 35px;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    float: right;
+}
+
+    /* Hide the default checkbox */
+    .switch input {
+      display: none;
+    }
+
+    /* Style for the slider */
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #b1b1b1;;
+      transition: 0.4s;
+      border-radius: 34px;
+    }
+
+    /* Style for the slider when checked */
+    .slider::before {
+    content: "";
+    position: absolute;
+    width: 43.33%;
+    height: 76.47%;
+    left: 6.67%;
+    bottom: 11.76%;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+    }
+
+    /* Style for the slider when the switch is checked */
+    input:checked + .slider {
+      background-color: #66bb6a;
+    }
+
+    /* Style for the slider's inner circle when the switch is checked */
+    input:checked + .slider::before {
+      transform: translateX(100%);
+      animation: none;
+    }
+
+    @keyframes changeWidthSwitch {
+       0% {
+         width: 43.33%;
+     }
+       50% {
+         width: 86.66%;
+     }
+       100% {
+         width: 43.33%;
+     }
+ }
+         
+
+   .settingslabel {
+      float: left;
+    }
+    
+    
+
+     body {
+     /* text-align: center; */
+      background-color: white;
+      transition: background-color 0.5s;
+    }
+.select {
+    height: 100%;
+    width: 325px;
+    border: none;
+    border-radius: 25px;
+    padding-top: px;
+    margin: auto;
+    align-items: center;
+    background-color: limegreen;
+    color: white;
+    overflow: hidden;
+    z-index: 2;
+    transition: width 0.5s, height 0.5s, background-color 0.3s;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    user-select: none;
+}
+   
+
+    .select:hover {
+      background-color: #00e24a;
+    }
+
+    .option1 {
+    border: none;
+    background-color: yellow;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 40px;
+    }
+
+    .option2 {
+    border: none;
+    background-color: darkblue;
+    color: white;
+    margin-bottom: -20px;
+    border-radius: 0px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 14%;
+    }
+
+    .option1, .option2 {
+    height: 40px;
+    width: 100%;
+    font-size: 15pt;
+    background-color: #f6ff86;
+    color: black;
+    display: none;
+    text-align: center;
+    justify-content: center;
+    display: none;
+    opacity: 0;
+    transition: background-color 0.3s, display 0.5s, position 0.5s, opacity 0.5s;
+    animation: flyIn 0.5s ease-in-out;
+    align-content: center;
+    align-items: center;
+    }
+
+    .option1:hover {
+      background-color: #c9ff86;
+    }
+
+    .option2:hover {
+      background-color: #c9ff86;
+    }
+
+    @keyframes flyIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-50%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
+
+    @keyframes flyOut {
+      0% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(200%);
+      }
+    }
+
+    .hide {
+      height: 100%; /* Cover the entire viewport height */
+      width: 100%; /* Cover the entire viewport width */
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: black;
+      opacity: 0%;
+      display: none;
+      z-index: 1;
+    }
+
+
+    #theme-label {
+    font-size: 24px;
+    margin-top: 3px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    }
+
+.dropicon {
+    height: 18px;
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    float: right;
+    margin-top: 3px;
+    transition: transform 0.4s;
+}
+
+  .options {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+   .selectlabels {
+    display: block;
+    align-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 37px; 
+    border: none;
+    text-align: center;
+    justify-content: space-between;
+    margin-top: 3px;
+}
+
+#themeName {
+ display: none;
+}
+
+.downshape {
+fill: white;
+}
+
+#scriptthemes {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 87.4%;
+    background-color: limegreen;
+    color: white;
+    height: 42px;
+    z-index: 0;
+    justify-content: center;
+    border-radius: 21px;
+    transition: all 0.5s, transform 0.3s, background-color 0.2s;
+}
+
+    #scriptthemes:hover {
+      background-color: #00e24a;
+    }
+
+
+
+
+.CodeMirror-vscrollbar {
+    position: absolute;
+    z-index: 3;
+    display: none;
+    outline: 0;
+}
+
+.CodeMirror-gutters {
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-height: 100%;
+    z-index: 0;
+}
+
+.cm-editor .cm-content {
+    font-family: "Consolas";
+}
+
+.cm-editor.cm-focus {
+    outline: 2px solid blue;
+}
+
+.CodeMirror-cursor {
+  animation: none;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+   #importbtn {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    position: absolute;
+    right: 189px;
+    margin-top: 7px;
+    background-color: transparent;
+    border: none;
+    transition: transform 0.2s;
+}
+
+   #importbtn:active {
+    transform: scale(0.9);
+}
+
+  #importbtn::after {
+    content: attr(hover);
+    position: absolute;
+    bottom: 0%;
+    left: -17%;
+    transform: translateX(-50%);
+    background-color: #767676de;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s, bottom 0.3s, transform 0.2s;
+    height: 38%;
+    font-size: 10pt;
+    transform: scale(0.0001);
+}
+
+   #importbtn:hover::after {
+    transition-delay: 0.2s;
+    opacity: 1;
+    z-index: 10;
+    bottom: -65%;
+    transform: scale(1.0);
+        }
+
+   #importicon {
+     height: 100%;
+}
+
+   #importbtn:hover {
+      transform: scale(1.1);
+     }
+
+
+
+#previewbtn:active #previewiconarrow {
+    transform: translate(5px, -4px) translate3d(0px, 0px, 0px);
+    opacity: 0.5;
+}
+
+#previewbtn:hover #previewiconarrow {
+    transform: translate(-5px, 4px) perspective(93px) translate3d(2px, 0px, -4px);
+}
+
+#previewiconarrow {
+    height: 24px;
+    width: 23px;
+    position: absolute;
+    left: 17px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+
+.CodeMirror {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border: none;
+    height: 72vh;
+    box-shadow: 0 0 2px 1px grey;
+    position: relative;
+    font-family: monospace;
+    width: 49%;
+    border-radius: 20px;
+    resize: none;
+    cursor: text;
+    font-size: 110%;
+    transition: background-color 0.5s, color 0.5s, box-shadow 0.3s;
+}
+
+  .CodeMirror-focused {
+  box-shadow: 0px 0px 6px 2px grey;
+}
+
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar {
+    position: absolute;
+    z-index: 3;
+    display: none;
+    outline: 0;
+}
+
+.CodeMirror-gutters {
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-height: 100%;
+    z-index: 3;
+}
+
+#themecontainer {
+    height: 41.9968px;
+    /* padding-bottom: 17px; */
+    border-bottom: 1px #57575780;
+    border-bottom-style: solid;
+    margin-bottom: 16px;
+}
+
+
+.settingscontainer {
+    height: 10.88%;
+    padding-bottom: 26px;
+    border-bottom: 1px #57575780;
+    border-bottom-style: solid;
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+ 
+
+  #importinfo {
+    height: 398px;
+    width: 313px;
+    right: 189px;
+    top: 131px;
+    border: none;
+    position: absolute;
+    /* padding: 0px; */
+    padding-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: -10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px 2px grey;
+    z-index: 4;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+/*    animation: flyInsi 1s ease-in-out; */
+    transition: clip-path 0.7s;
+}
+
+   @keyframes flyInsi {
+     0% {
+      transform: translateY(-130px); /* Corrected syntax */
+      opacity: 0;
+      height: 100px;
+  }
+
+     40% {
+       opacity: 0.1;
+       }
+
+    100% {
+      transform: translateY(0px); /* Corrected syntax */
+      opacity: 1;
+      height: 398px;
+  }
+}
+
+   @keyframes flyOutsi {
+     0% {
+      transform: translateY(0px); /* Corrected syntax */
+      opacity: 1;
+      height: 398px;
+  }
+
+     30% {
+       opacity: 0.7;
+       }
+
+    100% {
+      transform: translateY(-70px); /* Corrected syntax */
+      opacity: 0;
+      height: 100px;
+  }
+}
+  
+  #fileInputStyle {
+    height: 174px;
+    width: 215px;
+    border: none;
+    border-radius: 55px;
+    background-color: #ffffff00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s, background-color 0.3s;
+  }
+
+   @keyframes fadeOuti {
+     from {
+     opacity: 1;
+     }
+      to {
+      opacity: 0;
+       }
+}
+
+    @keyframes fadeIni {
+      from {
+      opacity: 0;
+      }
+      to {
+     opacity: 1;
+        }
+}
+  
+  #fileInputStyle:hover {
+    box-shadow: 8px 10px 8px 2px #000000;
+    background-color: #ffffff70;
+}
+  
+  #fileInput {
+    display: none;
+  }
+  
+  #importfromicon {
+    width: 90%;
+  }
+  
+  #importButton {
+    position: absolute;
+    bottom: 6%;
+    height: 35px;
+    width: 90%;
+    border: none;
+    border-radius: 1000px;
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: width 0.3s, box-shadow 0.3s, background-color 0.3s, transform 0.3s;
+  }
+  
+  #importButton:hover {
+    box-shadow: 3px 5px 2px 0px black;
+    background-color: #3eab00;
+}
+  
+  #importButton:active {
+    box-shadow: none;
+    transform: translate(3px, 5px);
+    background-color: #3eab00;
+}   
+    
+  
+  #importfilename {
+    position: absolute;
+    bottom: 18%;
+    height: 35px;
+    width: 90%;
+    border: none;
+    border-radius: 17.5px;
+    background-color: #6ff5d1;
+    color: black;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+  }
+  
+  .importfileinfo {
+    height: 35px;
+    width: 35px;
+    border: none;
+    border-radius: 100px;
+    background-color: #0038ff;
+    position: absolute;
+    right: 0px;
+    display: flex;
+    transition: width 0.5s, box-shadow 0.4s;
+  }
+  
+  #fileinfoicon {
+    height: 152%;
+    position: absolute;
+    right: 0%;
+    top: -16%;
+    /* margin: auto; */
+  }
+  
+.importfileinfo:hover {
+    width: 24.5%;
+    cursor: pointer;
+    box-shadow: -7px 0px 7px -2px #00000094;
+}
+  
+  #importhead {
+    font-size: 188%;
+    margin-top: 20px;
+}   
+  
+  .importfileinfo:hover:before {
+    content: 'Info';
+    position: absolute;
+    opacity: 1;
+    left: 8%;
+    top: 10%;
+    font-size: 15pt;
+    color: white;
+    animation: fadeIni 0.5s;
+}
+  
+  .importfileinfo:before {
+    left: 200px;
+}
+
+  .importfileinfoclose {
+    height: 35px;
+    width: 35px;
+    border: none;
+    border-radius: 100px;
+    background-color: #0038ff;
+    position: absolute;
+    right: 0px;
+    display: flex;
+    transition: width 0.5s, box-shadow 0.4s;
+}
+
+  .importfileinfoclose:hover {
+    width: 31%;
+    cursor: pointer;
+    box-shadow: -7px 0px 7px -2px #00000094;
+}
+
+   .importfileinfoclose:before {
+     left: 200px;
+}
+
+
+    .importfileinfoclose:hover:before {
+    content: 'Close';
+    position: absolute;
+    opacity: 1;
+    left: 8%;
+    top: 10%;
+    font-size: 15pt;
+    color: white;
+    animation: fadeIni 0.5s;
+}
+    
+ #importclose {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    opacity: 0%;
+    z-index: 4;
+    display: none;
+    position: fixed;
+    
+}
+
+  #fileNameSpan {
+    transition: opacity 0.5s;
+    position: absolute;
+    top: 4.375px;
+}
+
+
+
+  #fileinfohead {
+    margin-top: 6%;
+    background-color: blue;
+    color: white;
+    height: 40px;
+    width: 151px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 112px;
+    opacity: 1;
+    transition: opacity 0.5s;
+    }
+
+.details {
+    margin-top: -15%;
+    background-color: #f2ff00;
+    color: black;
+    height: 37px;
+    width: 252px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 112px;
+    opacity: 1;
+    font-size: 90%;
+    transition: opacity 0.5s, margin-top 0.4s;
+}
+
+.infoname {
+    position: absolute;
+    left: 13%;
+    color: black;
+}
+
+.detaildata {
+    position: absolute;
+    right: 13%;
+}
+
+#fileinfoall {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#infofilename {
+    margin-top: 7%
+  }
+  
+  #settingsbottom {
+    position: absolute;
+    bottom: 0%;
+    /* background-color: green; */
+    height: 15%;
+    width: 100%;
+    left: 0;
+    z-index: 4;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-image: linear-gradient(to top, #f0f0f0, #f0f0f0b0, #f0f0f059, transparent);
+}
+  
+  #settingscontainer {
+    height: 68%;
+    width: 118%;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0px;
+    /* overflow-x: hidden; */
+    overflow-y: scroll;
+    padding-top: 33px;
+}
+
+
+
+  #textwrapcontainer {
+    /* margin-bottom: -16px; */
+    padding-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+  
+  #themecontainer {
+    height: 41.9968px;
+    padding-bottom: 17px;
+    border-bottom: 1px #57575780;
+    border-bottom-style: solid;
+    margin-bottom: 13px;
+}
+
+#autoruncontainer {
+    /* margin-bottom: -16px; */
+    padding-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#autorunlabel {
+    /* position: absolute; */
+    margin-left: 40px;
+    /* left: 37px; */
+}
+
+
+#settingsholder {
+    display: flex;
+    text-align: center;
+    z-index: 3;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 0px;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 386px;
+    width: 330px;
+}
+
+  
+  #copybtn {
+    border: none;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    background-color: transparent;
+    left: 15px;
+    margin-top: 7px;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s, transform 0.2s ease-in-out;
+  }
+  
+  #copyicon {
+    height: 40px;
+  }
+
+   #copybtn:active {
+   /* transform: scale(1.1) !important; */
+}
+
+  #copybtn::after {
+    content: attr(hover);
+    position: absolute;
+    bottom: 0%;
+    left: -30%;
+    transform: translateX(-50%);
+    background-color: #767676de;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s, bottom 0.3s, transform 0.3s;
+    height: 38%;
+    font-size: 10pt;
+    transform: scale(0.0001);
+}
+
+/*  #copybtn::before {
+    content: '';
+    background-color: #767676de;
+    color: #fff;
+    border-radius: 100%;
+    opacity: 0;
+    transition: opacity 0.3s, bottom 0.3s, transform 0.2s;
+    height: 100%;
+    width: 100%;
+    font-size: 10pt;
+    transform: scale(0.0001);
+} */
+
+
+
+
+   #copybtn:hover::after {
+    transition-delay: 0.2s;
+    opacity: 1;
+    z-index: 10;
+    bottom: -91%;
+    transform: scale(1.0);
+        }
+
+
+
+      #copybtn:hover #shape1, #copybtn:hover #shape2 {
+        background-color: white;
+      }
+      
+      #copybtn:active #shape2 {
+        transform: translate(10%, 10%);
+      }
+      
+       #copybtn:active #shape1 {
+        transform: translate(10%, 10%);
+      }
+
+      #shape1, #shape2 {
+    height: 31px;
+    width: 31px;
+    border: 4px solid black;
+    border-radius: 10px;
+    position: absolute;
+    left: 0px;
+    background-color: #ededed;
+    transition: all 0.3s;
+      }
+      
+      #shape2 {
+        transform: translate(24%, 24%);
+   /*     background: lightgrey;  */
+      }
+
+
+        .context-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    /* border: 1px solid #ccc; */
+    border-radius: 9px;
+    padding: 0;
+    z-index: 1000;
+    box-shadow: 0px 0px 4px 0px rgb(0 0 0);
+    animation: fade-insi 0.3s ease-in-out;
+    width: 150px;
+    transition: left 0.4s, right 0.4s, bottom 0.4s, top 0.4s, opacity 0.2s;
+   
+      }
+
+        .context-menu-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px;
+            transition: background-color 0.2s;
+        }
+
+        .context-menu-option:hover {
+            background-color: #f1f1f1;
+        }
+
+        .context-menu-option:first-child {
+            border-top-left-radius: 9px;
+            border-top-right-radius: 9px;
+        }
+
+        .context-menu-option:last-child {
+            border-bottom-left-radius: 9px;
+            border-bottom-right-radius: 9px;
+        }
+
+        .context-menu-option:active {
+            background-color: #d1d1d1;
+        }
+
+        .context-menu-option-icon {
+            margin-right: 10px;
+        }
+
+        @keyframes fade-insi {
+            0% {
+            opacity: 0;
+            transform: translateY(-20px);
+            transform: scaleY(0.3);
+            transform-origin: top;
+           }
+
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+              transform: scaleY(1);
+              transform-origin: top;
+           }
+        }
+
+  #copyclose {
+    position: fixed;
+    background-color: black;
+    opacity: 0%;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    display: none;
+ 
+}
+
+.iconcover {
+    background: green;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+ 
+
+#settingscontainer::-webkit-scrollbar {
+  width: 6px;
+  background-color: #8e8e8e00;
+  border-radius: 1000px;
+  height: 10px;
+  cursor: default;
+}
+
+#settingscontainer::-webkit-scrollbar-thumb {
+  background-color: #00000035;
+  width: 2px;
+  border-radius: 10px 10px 10px 10px;
+  opacity: 0.5;
+}
+
+  #downloadfileinfo {
+    position: absolute;
+    bottom: 23%;
+    height: 35px;
+    width: 86%;
+    border: none;
+    border-radius: 17.5px;
+    background-color: #6ff5d1;
+    color: black;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+  }
+
+  #downloadFileDetailsspan {
+    transition: opacity 0.5s;
+    position: absolute;
+    top: 4.375px;
+}
+
+
+
+  #fileinfohead {
+    margin-top: 6%;
+    background-color: blue;
+    color: white;
+    height: 40px;
+    width: 151px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 112px;
+    opacity: 1;
+    transition: opacity 0.5s;
+    }
+
+.details {
+    margin-top: -15%;
+    background-color: #f2ff00;
+    color: black;
+    height: 37px;
+    width: 252px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 112px;
+    opacity: 1;
+    font-size: 90%;
+    transition: opacity 0.5s, margin-top 0.4s;
+}
+
+.infoname {
+    position: absolute;
+    left: 13%;
+    color: black;
+}
+
+.savedetaildata {
+    position: absolute;
+    right: 13%;
+}
+
+#savefileinfoall {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#saveinfofilename {
+    margin-top: 7%
+  }
+
+  #filesaveicon {
+    height: 152%;
+    position: absolute;
+    right: -3%;
+    top: -15%;
+    /* margin: auto; */
+  }
+
+  .savefileinfo {
+    height: 35px;
+    width: 35px;
+    border: none;
+    border-radius: 100px;
+    background-color: #0038ff;
+    position: absolute;
+    right: 0px;
+    display: flex;
+    transition: width 0.3s, box-shadow 0.4s;
+  }
+
+.savefileinfo:hover {
+    width: 27.5%;
+    cursor: pointer;
+    box-shadow: -7px 0px 7px -2px #00000094;
+}
+
+  .savefileinfo:hover:before {
+    content: 'Info';
+    position: absolute;
+    opacity: 1;
+    left: 8%;
+    top: 10%;
+    font-size: 15pt;
+    color: white;
+    animation: fadeIni 0.5s;
+}
+  
+  .savefileinfo:before {
+    left: 200px;
+}
+   
+
+   #toptoolmenu {
+    height: 61px;
+    width: 225px;
+    background: white;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 18px;
+    position: absolute;
+    z-index: 6;
+    box-shadow: 0 0 3px 0px black;
+    /* padding-left: 17px; */
+    animation: fade-insi 0.2s; 
+    display: none;
+    transition: left 0.4s, right 0.4s, bottom 0.4s, top 0.4s, opacity 0.2s;
+}
+
+
+#showtool {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius: 18px;
+    height: 100%;
+    padding: 0;
+    flex-wrap: wrap;
+    cursor: default;
+}
+
+
+#showtoollabel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 18px;
+    margin-left: 7px;
+}
+
+#showtoolbox {
+    position: relative;
+    right: 35px;
+    display: inline-block;
+    width: 50px;
+    height: 28.933333px;
+    float: right;
+    right: -21px;
+}
+
+  #showtool:hover {
+   background: #f9f9f9;
+}
+
+   #showtools:active {
+     background: white;
+}
+
+  
+  #show-tools-icon {
+    height: 30px;
+    margin-left: 14px;
+  }
+  
+  .show-tool-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+ .topbtnright {
+} 
+
+  .topbtnleft {
+}
+   
+    
+
+</style>
+</head>
+<body>
+<div id="importclose" class="importclose"></div>
+<div id="copyclose"></div>
+<div class="topcontainer" id="topcontainer">
+<h1>HTML code runner</h1>
+<div class="headborder" id="headborder"></div>
+
+<button id="copybtn" class="copybtn topbtn topbtnleft" hover="Copy (Ctrl+C)">
+   <div id="copyicon" class="copyicon">
+     <div id="shape1"></div>
+     <div id="shape2"></div>
+   </div>
+</button>
+
+<button class="run" id="run"><span>Run code</span></button>
+
+<button class="importbtn topbtn topbtnright" id="importbtn" hover="Import"><img src="import_icon.svg" id="importicon" class="importicon"/></button>
+
+<button class="previewbtn topbtn topbtnright" id="previewbtn" hover="Preview">
+<!--<img src="OOjs_UI_icon_newWindow-ltr.svg" class="previewicon" id="previewicon">-->
+ <img src="preview-icon-box.svg" class="previewicon" id="previewiconbox">
+ <img src="preview-icon-arrow.svg" class="previewicon" id="previewiconarrow">
+</button>
+
+<button class="downloadbtn topbtn topbtnright" id="downloadbtn" hover="Save"><img src="Font_Awesome_5_solid_save.svg" id="downloadicon" class="downloadicon"/></button>
+
+<button id="settingsbtn" class="settingsbtn" hover="Settings"><div id="settingsiconcover" class="iconcover"></div><img src="Ic_settings_48px.svg" class="settingsicon" id="settingsicon"></button>
+</div>
+
+    <div class="context-menu" id="contextMenu">
+        <div class="context-menu-option" id="copyAllOption">
+            <div class="context-menu-option-icon">📋</div>
+            Copy All
+        </div>
+        <div class="context-menu-option" id="copySelectedOption">
+            <div class="context-menu-option-icon">📄</div>
+            Copy Selected
+        </div>
+        <div class="context-menu-option" id="cutSelectedOption">
+            <div class="context-menu-option-icon">✂️</div>
+            Cut Selected
+        </div>
+    </div>
+
+    <div class="cotext-menu" id="toptoolmenu">
+       <div class="context-menu-option" id="showtool">
+         <div class="show-tool-line" id="show-tool-line">
+           <img src="Black_tools_icon.svg" id="show-tools-icon"/>
+          <span id="showtoollabel" class="showtoollabel">Show tools</span>
+          <label class="switch" id="showtoolbox">
+           <input type="checkbox" class="showTools" id="showTools">
+           <span class="slider" id="showtoolslider"></span>
+          </label>
+         </div>
+      </div>  
+   </div>
+
+
+<div id="downloadclose" class="downloadclose"></div>
+<div id="downloadinfo" class="downloadinfo">
+<h2 id="downloadhead">Save the HTML file</h2>
+<p id="downloadp" class="downloadp">You can save this code as a HTML file.</p> 
+<input id="filename" class="filename" placeholder="Enter the file name..." autocomplete="off"></input>
+
+    <div id="downloadfileinfo" class="downloadfileinfo"><span id="downloadFileDetailsspan">File details</span><div id="savefileinfo" class="savefileinfo"><img src="file:///C:/Users/ACER/Documents/Shihans%20animation%20world/Codes/Bing%20AI/HTML%20Runner/Info_icon_2.svg" id="filesaveicon"/></div>
+     <div id="savefileinfoall" class="savefileinfoall">
+      <div id="savefileinfohead" class="savefileinfohead">File details</div>
+      <div id="saveinfofilename" class="savedetails">
+       <span class="saveinfoname" id="savefilenames">Name</span><span class="savedetaildata" id="savefilenamedata">HTML</span>
+      </div>
+      <div id="savefilesize" class="savedetails">
+       <span class="saveinfoname" id="savefilesizes">Size</span><span class="savedetaildata" id="savefilesizedata">8kb</span>
+      </div>
+      <div id="savefilchar" class="savedetails">
+       <span class="saveinfoname" id="savefilechars">Characters</span><span class="savedetaildata" id="savefilechardata">8000</span>
+      </div>
+      <div id="savefileline" class="savedetails">
+       <span class="saveinfoname" id="savefilelines">Lines</span><span class="savedetaildata" id="savefilelinedata">80</span>
+      </div>
+
+    </div>
+   </div>
+
+
+<button id="downloadfinal" class="downloadfinal">Save</button>
+</div>
+
+
+<div class="importinfo" id="importinfo">
+    <h2 id="importhead" class="importhead">Import a html file</h2>
+  <div id="fileInputStyle" class="fileInputStyle">
+    <label for="fileInput"><img src="file:///C:/Users/ACER/Documents/Shihans%20animation%20world/Codes/HTML%20Runner/Import%20from.svg" id="importfromicon"/></label>
+  </div>
+    <input type="file" id="fileInput" accept=".html, .htm, .svg">
+    <div id="importfilename" class="importfilename"><span id="fileNameSpan">No file chosen</span><div id="importfileinfo" class="importfileinfo"><img src="file:///C:/Users/ACER/Documents/Shihans%20animation%20world/Codes/HTML%20Runner/Info_icon_2.svg" id="fileinfoicon"/></div>
+     <div id="fileinfoall" class="fileinfoall">
+      <div id="fileinfohead" class="fileinfohead">File details</div>
+      <div id="infofilename" class="details">
+       <span class="infoname" id="infofilenames">Name</span><span class="detaildata" id="filenamedata">HTML</span>
+      </div>
+      <div id="infofilesize" class="details">
+       <span class="infoname" id="infofilesizes">Size</span><span class="detaildata" id="filesizedata">8kb</span>
+      </div>
+      <div id="infofilchar" class="details">
+       <span class="infoname" id="infofilechars">Characters</span><span class="detaildata" id="filechardata">8000</span>
+      </div>
+      <div id="infofileline" class="details">
+       <span class="infoname" id="infofilelines">Lines</span><span class="detaildata" id="filelinedata">80</span>
+      </div>
+
+    </div>
+   </div>
+
+    <button id="importButton" class="importButton">Import HTML</button>
+</div>
+
+
+
+<div id="container" class="container">
+<textarea class="script" id="script"></textarea>
+<div id="space" class="space"></div>
+<iframe class="result" id="iframe" height="100" width="100"></iframe>
+</div>
+<div class="menudark" id="menudark"></div>
+
+
+
+
+ <div class="settings" id="settings">
+
+  <button id="settingsclose" class="settingsclose"><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/VisualEditor_-_Icon_-_Close_-_white.svg"/></button>
+
+  <div id="settingsholder" class="settingsholder">
+   <div id="settingstop" class="settingstop">
+    <h2 id="settingshead" class="settingshead">Settings</h2>
+   </div>
+
+   <div id="settingscontainer" class="settingscontainer">
+
+    <div id="themecontainer" class="themecontainer">
+     <div class="select" id="themeSelect">
+      <div class="selectlabels" id="themeSelectLabels">
+       <span id="theme-label" class="label">Theme</span>
+       <img class="dropicon" src="Arrow-down.svg"/>
+      </div>
+<br/>
+      <div class="options">
+       <button class="option1" id="light">Light</button>
+       <br/>
+       <button class="option2" id="dark">Dark</button>
+      </div>
+     </div>
+   </div>
+   <div class="hide"></div>
+
+   <div id="choosescripttheme" class="settingscontainer">
+    <div id="scriptthemes" class="scriptthemes">
+     <div id="scripthemelabel" class="scriptthemelabel">
+      <label for="scriptthemes" id="scriptthemelabel" class="settingslabel">Chose script theme</label>
+      </div>
+     </div>
+   </div>   
+
+   <div id="textwrapcontainer" class="settingscontainer">
+    <label for="wrapbox" id="wraplabel" class="settingslabel">Wrap Text</label>
+    <label class="switch" id="wrapbox">
+     <input type="checkbox" class="textwrap" id="textwrap">
+     <span class="slider" id="wrapslider"></span>
+    </label>
+    </div>
+
+   <div id="autoruncontainer" class="settingscontainer">
+    <label for="autorunbox" id="autorunlabel" class="settingslabel">Auto run script</label>
+    <label class="switch" id="autorunbox">
+     <input type="checkbox" class="autorun" id="autorun">
+     <span class="slider" id="autorunslider"></span>
+    </label>
+   </div>   
+
+   </div>   
+
+
+   
+    <!--  <label for="theme" id="themelabel">Theme:</label>
+      <select id="themeNaN">
+        <option value="light-theme">Light</option>
+        <option value="dark-theme">Dark</option>
+      </select> -->
+   <!--   <label for="fontsize" id"fontsizelabel">Font Size:</label>
+      <select id="fontsize">
+        <option value="size1">1</option>
+        <option value="size2">2</option>
+      </select> -->
+
+   <div id="settingsbottom" class="settingsbottom"></div>
+  </div>
+
+</div>
+
+
+
+
+<script>
+var textarea = document.querySelector("#script");
+var iframe = document.querySelector("#iframe");
+var runButton = document.querySelector("#run");
+var settingsbtn = document.querySelector("#settingsbtn");
+var settings = document.querySelector("#settings");
+var settingsclose = document.querySelector("#settingsclose");
+var menudark = document.querySelector("#menudark");
+// var themeSelect = document.querySelector("#theme");
+var topcontainer = document.querySelector("#topcontainer");
+var settingsicon = document.querySelector("#settingsicon");
+var settingsimg = document.querySelector("#settingsimg");
+var headborder = document.querySelector("#headborder");
+var downloadicon = document.querySelector("#downloadicon");
+var downloadbtn = document.querySelector("#downloadbtn");
+var downloadinfo = document.querySelector("#downloadinfo");
+var downloadclose = document.querySelector("#downloadclose");
+var downloadfinal = document.querySelector("#downloadfinal");
+var filename = document.querySelector("#filename");
+var previewbtn = document.querySelector("#previewbtn");
+var previewiconbox = document.querySelector("#previewiconbox");
+var previewiconarrow = document.querySelector("#previewiconarrow");
+var textwrap = document.querySelector("#textwrap");
+var themeSelect = document.querySelector("#themeSelect");
+var hide = document.querySelector(".hide");
+var light = document.querySelector("#light");
+var dark = document.querySelector("#dark");
+var themeName = document.querySelector("#themeName");
+var codeMirror = document.querySelector(".CodeMirror");
+var importicon = document.querySelector("#importicon");
+var importbtn = document.querySelector("#importbtn");
+var importinfo = document.querySelector("#importinfo");
+var importclose = document.querySelector("#importclose");
+var fileInput = document.querySelector("#fileInput");
+var importButton = document.querySelector("#importButton");
+var importfilename = document.querySelector("#importfilename");
+var fileNameSpan = document.querySelector("#fileNameSpan");
+var importfileinfo = document.querySelector("#importfileinfo");
+var fileinfoicon = document.querySelector("#fileinfoicon");
+var fileinfohead = document.querySelector("#fileinfohead");
+var fileinfoall = document.querySelector("#fileinfoall");
+var details = document.querySelectorAll(".details");
+var filenamedata = document.querySelector("#filenamedata");
+var filesizedata = document.querySelector("#filesizedata");
+var filechardata = document.querySelector("#filechardata");
+var filelinedata = document.querySelector("#filelinedata");
+var copybtn = document.querySelector("#copybtn");
+var contextMenu = document.getElementById("contextMenu");
+var copyAllOption = document.getElementById("copyAllOption");
+var copySelectedOption = document.getElementById("copySelectedOption");
+var cutSelectedOption = document.getElementById("cutSelectedOption");
+var copyclose = document.querySelector("#copyclose");
+var autorun = document.querySelector("#autorun");
+var dropicon = document.querySelector(".dropicon");
+var previewIconArrow = document.querySelector("#previewIconArrow");
+var scriptthemes = document.querySelector("#scriptthemes");
+var toptoolmenu = document.querySelector("#toptoolmenu");
+var showtool = document.querySelector("#showtool");
+var showTools = document.querySelector("#showTools");
+  
+  
+
+
+        topcontainer.addEventListener("contextmenu", (e) => {
+              if (event.target.closest('.copybtn, #previewbtn, #runButton, #settingsbtn, #downloadbtn, #importbtn')) {
+      // If so, do nothing (let the browser handle the right-click)
+      return;
+    } else {
+            e.preventDefault();
+            const x = e.clientX;
+            const y = e.clientY;
+            toptoolmenu.style.display = "flex";
+        //    copyclose.style.display = "block";
+            toptoolmenu.style.opacity = "1"
+            toptoolmenu.style.left = x + "px";
+            toptoolmenu.style.top = y + "px";
+    }
+        });
+  
+  document.addEventListener("click", () => {
+  setTimeout(function() {
+    toptoolmenu.style.display = "none";
+  }, 400);
+      setTimeout(function() {
+  toptoolmenu.style.opacity = "0";
+      }, 200);
+});
+ 
+    function checkToolSettings() {
+    if (showTools.checked) {
+      alert("Show the tools");
+    } else {
+      alert("Hide the tool!");
+    }
+  }
+  
+  showTools.addEventListener("change", checkToolSettings);
+
+
+
+var scriptthemeopen = false;
+scriptthemes.addEventListener("click", () => {
+ if (!scriptthemeopen) {
+  scriptthemes.style.display = "flex"; // Show the element on click
+  scriptthemes.style.textAlign = "center";
+  scriptthemes.style.flexDirection = "column";
+  scriptthemes.style.alignItems = "center";
+  scriptthemes.style.width = "87.4%";
+  scriptthemes.style.color = "white";
+  scriptthemes.style.height = "323px";
+  scriptthemes.style.justifyContent = "center";
+  scriptthemes.style.borderRadius = "21px";
+  scriptthemes.style.transform = "translateY(0px)";
+  scriptthemes.style.zIndex = 2;
+  scriptthemeopen = true;
+
+} else {
+scriptthemes.style.textAlign = "center";
+scriptthemes.style.display = "flex";
+scriptthemes.style.flexDirection = "column";
+scriptthemes.style.alignItems = "center";
+scriptthemes.style.width = "87.4%";
+scriptthemes.style.color = "white";
+scriptthemes.style.height = "42px";
+scriptthemes.style.zIndex = 0;
+scriptthemes.style.justifyContent = "center";
+scriptthemes.style.borderRadius = "21px";
+  scriptthemeopen = false;
+}
+
+}); 
+
+/*
+    document.addEventListener("click", () => {
+  if (scriptthemeopen = true) {
+scriptthemes.style.textAlign = "center";
+scriptthemes.style.display = "flex";
+scriptthemes.style.flexDirection = "column";
+scriptthemes.style.alignItems = "center";
+scriptthemes.style.width = "83%";
+scriptthemes.style.color = "white";
+scriptthemes.style.height = "42px";
+scriptthemes.style.zIndex = 0;
+scriptthemes.style.justifyContent = "center";
+scriptthemes.style.borderRadius = "21px";
+    }
+ }); */
+
+
+
+
+
+
+
+        copybtn.addEventListener("contextmenu", (e) => {
+            e.preventDefault();
+            const x = e.clientX;
+            const y = e.clientY;
+            contextMenu.style.display = "block";
+        //    copyclose.style.display = "block";
+            contextMenu.style.opacity = "1"
+            contextMenu.style.left = x + "px";
+            contextMenu.style.top = y + "px";
+        });
+
+document.addEventListener("click", () => {
+  setTimeout(function() {
+    contextMenu.style.display = "none";
+  }, 200);
+  contextMenu.style.opacity = "0";
+  copyclose.style.display = "none";
+});
+
+document.addEventListener("click", () => {
+  setTimeout(function() {
+    contextMenu.style.display = "none";
+  }, 200);
+  contextMenu.style.opacity = "0";
+  copyclose.style.display = "none";
+});
+
+
+        copyAllOption.addEventListener("click", () => {
+
+            // Implement the copy all functionality here
+     textToCopy = myEditor.getValue();
+     navigator.clipboard.writeText(textToCopy);
+
+        });
+
+        copySelectedOption.addEventListener("click", () => {
+          const selectedLines = myEditor.doc.getSelection();
+          textToCopy = selectedLines;
+          navigator.clipboard.writeText(textToCopy);
+        });
+
+        cutSelectedOption.addEventListener("click", () => {
+          const selectedLines = myEditor.doc.getSelection();
+          textToCopy = selectedLines;
+          navigator.clipboard.writeText(textToCopy);
+          selectedLines.setValue();
+        });
+
+
+  // Variable to store the text to be copied.
+  let textToCopy;
+
+
+copybtn.addEventListener('click', () => {
+  // Get the selected lines.
+  const selectedLines = myEditor.doc.getSelection();
+
+  // If there is no selected text, copy the entire contents of the editor.
+  if (selectedLines.length === 0) {
+    textToCopy = myEditor.getValue();
+  } else {
+    textToCopy = selectedLines;
+  }
+
+  // Copy the selected lines or the entire contents to the clipboard.
+  navigator.clipboard.writeText(textToCopy);
+});
+
+
+  
+  
+
+let expanded = true;
+
+function expandElement() {
+  expanded = false;
+  importfilename.style.height = '263px';
+  importfilename.style.position = 'absolute';
+  importfilename.style.bottom = '18%';
+  importfilename.style.width = '90%';
+  importfilename.style.border = 'none';
+  importfilename.style.borderRadius = '17.5px';
+  importfilename.style.backgroundColor = '#6ff5d1';
+  importfilename.style.color = 'black';
+  importfilename.style.fontSize = '20px';
+  importfilename.style.display = 'flex';
+  importfilename.style.justifyContent = 'center';
+  importfilename.style.alignItems = 'flex-start';
+
+  setTimeout(function () {
+    fileNameSpan.style.opacity = "0";
+    fileinfoall.style.opacity = "1";
+    details.forEach((detail) => {
+      detail.style.marginTop = "3%";
+    });
+    fileinfoicon.src = "FileInfoClose.svg";
+    fileinfoicon.style.cssText = "height: 82%; position: absolute; right: 3px; top: 7%;";
+    importfileinfo.classList.replace('importfileinfo', 'importfileinfoclose');
+  }, 500);
+}
+
+
+function collapseElement() {
+  fileinfoall.style.opacity = "0";
+  details.forEach((detail) => {
+    detail.style.marginTop = "-15%";
+  });
+expanded = true;
+  setTimeout(function () {
+    importfilename.style.height = '35px';
+    importfilename.style.position = 'absolute';
+    importfilename.style.bottom = '18%';
+    importfilename.style.width = '90%';
+    importfilename.style.border = 'none';
+    importfilename.style.borderRadius = '17.5px';
+    setTimeout(function () {
+      fileNameSpan.style.opacity = "1";
+      importfilename.style.display = 'flex';
+      importfilename.style.justifyContent = 'center';
+      importfilename.style.alignItems = 'center';
+      fileinfoicon.src = "Info_icon_2.svg";
+      fileinfoicon.style.cssText = "height: 152%; position: absolute; right: 0%; top: -16%;";
+      importfileinfo.classList.replace('importfileinfoclose', 'importfileinfo');
+    }, 500);
+  }, 500);
+}
+
+
+
+importfileinfo.addEventListener('click', () => {
+  
+
+  if (expanded) {
+    expandElement();
+  } else {
+    collapseElement();
+}
+
+  
+});
+
+
+importfileinfo.addEventListener('click', () => {
+  const fileInput = document.getElementById('fileInput'); // Make sure to define your file input element with the correct ID.
+
+
+  if (fileInput.files.length > 0) {
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      const textHTML = event.target.result;
+
+      // Display the full file name
+      filenamedata.textContent = file.name;
+
+      // Check if the file name is longer than 10 characters and truncate if necessary
+      if (file.name.length > 10) {
+        filenamedata.textContent = file.name.substring(0, 10) + '...';
+      }
+
+      const fileSizeInKB = (file.size / 1024).toFixed(2);
+      filesizedata.textContent = fileSizeInKB + ' KB';
+      filechardata.textContent = textHTML.length;
+      const lineCount = textHTML.split('\n').length;
+      filelinedata.textContent = lineCount;
+    };
+
+    reader.readAsText(file);
+  } else {
+    filenamedata.textContent = "❌";
+    filesizedata.textContent = "❌";
+    filechardata.textContent = "❌";
+    filelinedata.textContent = "❌";
+  }
+});
+
+
+
+
+   
+
+// Add an event listener to the import button.
+importButton.addEventListener('click', () => {
+
+  // Get the file from the file input element.
+  const file = fileInput.files[0];
+
+  // Create a new FileReader object.
+  const reader = new FileReader();
+
+  // Read the contents of the file as text.
+  reader.readAsText(file);
+
+  // Add an event listener to the load event of the FileReader object.
+  reader.addEventListener('load', () => {
+    // Get the text contents of the file.
+    const textHTML = reader.result;
+
+    // Add the textHTML to the textarea.
+    myEditor.setValue(textHTML);
+  });
+});
+
+fileInput.addEventListener('change', () => {
+  // Get the file from the file input element.
+  const file = fileInput.files[0];
+  // If there is a file selected, set the value of the textarea to the file name.
+  if (file) {
+    fileNameSpan.textContent = file.name;
+  } else {
+    // If there is no file selected, set the value of the textarea to "no file chosen".
+    fileNameSpan.textContent = 'No file chosen';
+  }
+});
+
+importbtn.addEventListener('click', function() {
+  importclose.style.display = "block";
+  importinfo.style.display = "flex";
+  importinfo.style.clipPath = "inset(-20px)";
+  importinfo.style.animation = "flyInsi 0.6s ease-in-out";
+  importclose.style.display = "block";
+  fileInputStyle.style.animation = "fadeIni 0.9s ease-in-out";
+  fileInputStyle.style.display = "flex";
+});
+
+
+
+
+  importclose.addEventListener('click', function() {
+/* expanded = !expanded; */
+
+  if (expanded) {
+    setTimeout(function() {
+   importinfo.style.display = "none";
+   fileInputStyle.style.display = "none";
+   }, 550);
+   importinfo.style.animation = "flyOutsi 0.6s ease-in-out";
+   importinfo.style.clipPath = "inset(-20px -20px 110% -20px)";
+   fileInputStyle.style.animation = "fadeOuti 0.8s ease-out";
+   importclose.style.display = "none";
+
+}  else {
+
+  collapseElement();
+
+  setTimeout(function() { 
+    setTimeout(function() {
+   importinfo.style.display = "none";
+   fileInputStyle.style.display = "none";
+   }, 550);
+  /* importinfo.style.animation = "flyOutsi 0.6s ease-in-out"; */
+   importinfo.style.clipPath = "inset(-20px -20px 110% -20px)";
+   fileInputStyle.style.animation = "fadeOuti 0.8s ease-out";
+   importclose.style.display = "none";
+  }, 1000);
+ }   
+
+ 
+});
+
+
+
+        // Add an event listener to the checkbox
+        textwrap.addEventListener('change', function() {
+            // Toggle the wrap attribute based on checkbox state
+            if (this.checked) {
+               // textarea.setAttribute('wrap', 'soft');
+            } else {
+                textarea.setAttribute('wrap', 'off');
+            }
+        });
+
+
+// Add an event listener for the preview button
+previewbtn.addEventListener("click", function() {
+    // Get the value of the editor
+    var code = myEditor.getValue();
+
+    // Create a blob object from the code
+    var blob = new Blob([code], { type: 'text/html' });
+
+    // Create a data URL from the blob object
+    var dataUrl = URL.createObjectURL(blob);
+
+    // Open a new tab with the data URL as the source
+    var newTab = window.open(dataUrl, '_blank');
+
+    // Check if the new tab was opened successfully
+    if (!newTab) {
+        alert("Pop-up blocked. Please allow pop-ups for this website, to preview your document in new tab.");
+    }
+});
+
+
+function downloadFile() {
+  var filesname = filename.value;
+  var script = myEditor.getValue(); // Retrieve the textarea value here
+  var dataUri = "data:text/html;charset=utf-8," + encodeURIComponent(script); // Update the dataUri based on the new script value
+  if (filesname) {
+    var downloadLink = document.createElement("a");
+    downloadLink.href = dataUri;
+    downloadLink.download = filesname + ".html"; // Add .html extension
+    downloadLink.click();
+  }
+}
+
+downloadfinal.addEventListener("click", downloadFile);
+
+
+filename.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    downloadFile();
+  }
+});
+
+filename.addEventListener("click", function() {
+   downloadfinal.value = "Save";
+});
+
+
+
+      downloadbtn.addEventListener("click", () => {
+          downloadinfo.style.display = "flex";
+          downloadclose.style.display = "block";
+          downloadinfo.style.animation = "flyIns 0.4s ease-in-out";
+});
+
+     downloadclose.addEventListener("click", () => {
+          setTimeout(function() {
+          downloadinfo.style.display = "none";
+          }, 0570);
+          downloadinfo.style.animation = "flyOuts 0.4s ease-in-out";
+          downloadclose.style.display = "none";
+
+
+
+});
+
+
+var isOpen = false;
+    themeSelect.addEventListener("click", function() {
+      if (!isOpen) {
+        themeSelect.style.height = "333%";
+        hide.style.display = "block";
+        light.style.opacity = "1";
+        dark.style.opacity = "1";
+        light.style.display = "flex";
+        dark.style.display = "flex";
+        light.style.animation = "flyIn 0.5s ease-in-out";
+        dark.style.animation = "flyIn 0.5s ease-in-out";
+        dropicon.style.transform = "rotate(180deg)";
+        isOpen = true;
+      } else {
+
+   setTimeout(function() {
+        hide.style.display = "none";
+        light.style.display = "none";
+        dark.style.display = "none";
+        isOpen = false;
+          }, 500);
+        themeSelect.style.height = "100%";
+      //  themeSelect.style.width = "200px";
+        light.style.opacity = "0";
+        dark.style.opacity = "0";
+        light.style.animation = "flyOut 0.5s ease-in-out";
+    //    dark.style.animation = "flyOut 0.5s ease-in-out";
+
+        dropicon.style.transform = "rotate(0deg)";
+      }
+    }); 
+
+    hide.addEventListener("click", function(event) {
+      if (event.target === hide) {
+   setTimeout(function() {
+        hide.style.display = "none";
+        light.style.display = "none";
+        dark.style.display = "none";
+        isOpen = false;
+          }, 500);
+        themeSelect.style.height = "100%";
+        light.style.opacity = "0";
+        dark.style.opacity = "0";
+        light.style.animation = "flyOut 0.5s ease-in-out";
+       // dark.style.animation = "flyOut 0.5s ease-in-out";
+
+        dropicon.style.transform = "rotate(0deg)";
+      }
+    });
+
+
+
+
+        // Check if a theme preference is stored in localStorage
+        const storedTheme = localStorage.getItem("theme");
+
+        // Apply the stored theme or default to the light theme
+        if (storedTheme) {
+            applyTheme(storedTheme);
+        } else {
+            applyTheme("light-theme");
+        }
+
+var newTheme;
+        light.addEventListener("click", () => {
+            // Update the theme preference in localStorage
+            localStorage.setItem("theme", "light-theme");
+            newTheme = "light-theme";
+
+            // Apply the new theme
+            applyTheme("light-theme");
+        });
+
+        dark.addEventListener("click", () => {
+            // Update the theme preference in localStorage
+            localStorage.setItem("theme", "dark-theme");
+            newTheme = "dark-theme";
+
+            // Apply the new theme
+            applyTheme("dark-theme");
+        });
+
+        // Apply the selected theme
+        function applyTheme(theme) {
+     if (theme === "dark-theme") {
+      document.body.style.backgroundColor = "black";
+      document.body.style.color = "white";
+      topcontainer.style.backgroundImage = "linear-gradient(to top, #404040, #404040)";
+      settings.style.backgroundColor = "black";
+      settings.style.color = "white";
+      var darkImageSrc = "settings_icon_white.svg";
+      settingsicon.src = darkImageSrc;
+      headborder.style.border = "1px solid white"
+      script.style.backgroundColor = "#141414";
+      script.style.color = "white";
+      downloadinfo.style.backgroundColor = "black";
+      downloadinfo.style.color = "white";
+      downloadicon.src = "Font_Awesome_5_solid_save_white.svg";
+      previewiconbox.src = "OOjs_UI_icon_newWindow-ltr_white.svg";
+      previewiconarrow.src = "OOjs_UI_icon_newWindow-ltr_white.svg";
+      importicon.src = "import_icon_white.svg";
+      runButton.style.backgroundColor = "#92D050";
+      runButton.style.boxShadow = "rgb(36 55 6 / 44%) 2px 4px 10px 1px inset";
+      
+
+     } else {
+      document.body.style.backgroundColor = "#f2f2f2";
+      document.body.style.color = "black";
+      topcontainer.style.backgroundImage = "linear-gradient(to top, #e7e7e7, #ffffff)";
+      settings.style.backgroundColor = "#f0f0f0";
+      settings.style.color = "black";
+      script.style.backgroundColor = "white";
+      script.style.color = "black";
+  var lightImageSrc = "Ic_settings_48px.svg";
+       settingsicon.src = lightImageSrc;
+      headborder.style.border = "1px solid black"
+      downloadicon.src = "Font_Awesome_5_solid_save.svg";
+      downloadinfo.style.backgroundColor = "#f0f0f0";
+      downloadinfo.style.color = "black";
+      previewiconbox.src = "preview-icon-box.svg";
+      previewiconarrow.src = "preview-icon-arrow.svg";
+      importicon.src = "import_icon.svg";
+      runButton.style.backgroundColor = "#92D050";
+      runButton.style.boxShadow = "inset 2px 4px 10px 1px greenyellow";
+            }
+            document.body.className = theme; // Apply the class for styling
+        }
+
+
+/* THIS IS NOT USED. IT IS IGNORED. SO IGNORE IT!!!!!!
+// Add event listener to the theme select element
+themeSelect.addEventListener("change", () => {
+  // Get the selected theme value
+  const theme = themeSelect.value;
+  // Change the document body style based on theme
+  switch (theme) {
+    case "light":
+
+      document.body.style.backgroundColor = "#f2f2f2";
+      document.body.style.color = "black";
+      topcontainer.style.backgroundImage = "linear-gradient(to top, #D9D9D9, #F2F2F2)";
+      settings.style.backgroundColor = "#f0f0f0";
+      settings.style.color = "black";
+      script.style.backgroundColor = "white";
+      script.style.color = "black";
+  var lightImageSrc = "Ic_settings_48px.svg";
+       settingsicon.src = lightImageSrc;
+      headborder.style.border = "1px solid black"
+      downloadicon.src = "Font_Awesome_5_solid_save.svg";
+      downloadinfo.style.backgroundColor = "#f0f0f0";
+
+      break;
+    case "dark":
+
+      document.body.style.backgroundColor = "black";
+      document.body.style.color = "white";
+      topcontainer.style.backgroundImage = "linear-gradient(to top, #404040, #404040";
+      settings.style.backgroundColor = "black";
+      settings.style.color = "white";
+      var darkImageSrc = "settings_icon_white.svg";
+      settingsicon.src = darkImageSrc;
+      headborder.style.border = "1px solid white"
+      script.style.backgroundColor = "black";
+      script.style.color = "white";
+      downloadicon.src = "Font_Awesome_5_solid_save_white.svg";
+      downloadinfo.style.backgroundColor = "black";
+
+      break;
+    default:
+      // Do nothing
+      break;
+  }
+});
+
+     **IGNORE IT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!**
+*/
+
+
+
+settingsbtn.addEventListener("click", function() {
+  settingsbtn.classList.add("active");
+  var rotation = 0;
+  var interval = setInterval(function() {
+    rotation += 4;
+    settingsbtn.style.transform = "rotate(" + rotation + "deg)";
+    if (rotation >= 360) {
+      clearInterval(interval);
+      settingsbtn.classList.remove("active");
+    }
+  }, 10);
+  settings.style.animation = "appear 0.5s ease-in-out";
+  menudark.style.animation = "fadeIn 0.4s ease-in-out";
+settings.style.display = "flex";
+menudark.style.display = "block";
+        /*    // Toggle the wrap attribute based on checkbox state
+            if (textwrap.checked) {
+               textarea.setAttribute('wrap', 'soft');
+            } else {
+                textarea.setAttribute('wrap', 'off'); */
+});
+
+settingsclose.addEventListener("click", function() {
+   setTimeout(function() {
+    settings.style.display = "none";
+    menudark.style.display = "none";
+          }, 0570);
+    settings.style.animation = "disappear 0.4s ease-in-out";
+    menudark.style.animation = "fadeOut 0.4s ease-in-out";
+});
+
+menudark.addEventListener("click", function() {
+   setTimeout(function() {
+    settings.style.display = "none";
+    menudark.style.display = "none";
+          }, 0570);
+    settings.style.animation = "disappear 0.4s ease-in-out";
+    menudark.style.animation = "fadeOut 0.4s ease-in-out";
+});
+
+
+  function loadautorun() {
+    const storedrun = localStorage.getItem('checkboxStateRun');
+    if (storedrun === 'checked') {
+      autorun.checked = true;
+    } else {
+      autorun.checked = false;
+    }
+  }
+
+var runsettings;
+  function saveautorun() {
+    if (autorun.checked) {
+      localStorage.setItem('checkboxStateRun', 'checked');
+      runsettings = true;
+    } else {
+      localStorage.removeItem('checkboxStateRun');
+      runsettings = false;
+    }
+  }
+
+  loadautorun();
+
+  autorun.addEventListener('change', saveautorun);
+
+
+
+
+
+
+// Create a CodeMirror instance and link it to the textarea
+var myEditor = CodeMirror.fromTextArea(textarea, {
+  // Set the mode to "htmlmixed"
+  mode: "htmlmixed",
+  // Set the theme to "eclipse"
+  theme: "eclipse",
+  // Show line numbers
+  lineNumbers: true,
+  // Match brackets
+  matchBrackets: true,
+  cursorBlinkRate: 1000,
+  cursorHeight: 1,
+  styleActiveLine: true, // Highlight the active line
+  autoCloseTags: true, // Automatically close HTML tags
+  matchTags: { bothTags: true }, // Highlight the matching tag
+  autoCloseBrackets: true, // Automatically close brackets and other delimiters
+  extraKeys: {
+    "Ctrl-Space": "autocomplete", // Enable autocompletion with Ctrl-Space
+    "Ctrl-F": "findPersistent", // Enable persistent search with Ctrl-F
+    "Ctrl-H": "replace", // Enable replace with Ctrl-H
+    "Ctrl-J": "toMatchingTag", // Jump to the matching tag with Ctrl-J
+  },
+  gutters: ["CodeMirror-lint-markers", "CodeMirror-linenumbers", "CodeMirror-foldgutter"], // Add gutters for lint errors, line numbers, and code folding
+  lint: true, // Enable code validation and error checking
+  foldGutter: true, // Enable code folding
+  
+
+
+  // Initialize line wrapping based on the saved setting or default to false
+  lineWrapping: localStorage.getItem("lineWrapping") === "true" || false,
+ 
+});
+
+
+  
+
+
+
+
+ var textwrap = document.getElementById("textwrap");
+
+  function load() {
+    const stored = localStorage.getItem('checkboxState');
+    if (stored === 'checked') {
+      textwrap.checked = true;
+    } else {
+      textwrap.checked = false;
+    }
+  }
+
+  function save() {
+    if (textwrap.checked) {
+      localStorage.setItem('checkboxState', 'checked');
+    } else {
+      localStorage.removeItem('checkboxState');
+    }
+  }
+
+  load();
+
+  textwrap.addEventListener('change', save);
+
+// Function to update and save the line wrapping setting
+function updateLineWrapping() {
+  myEditor.setOption("lineWrapping", textwrap.checked);
+  localStorage.setItem("lineWrapping", textwrap.checked);
+}
+
+// Add an event listener to update line wrapping based on the checkbox state
+textwrap.addEventListener("change", updateLineWrapping);
+
+
+
+// Add a key handler function for Enter
+myEditor.addKeyMap({
+  Enter: function(cm) {
+    // Return CodeMirror.Pass to let other handlers or default behavior take over
+    return CodeMirror.Pass;
+  }
+});
+
+
+myEditor.on('focus', function() {
+  myEditor.getWrapperElement().classList.add('CodeMirror-focused');
+});
+
+myEditor.on('blur', function() {
+  myEditor.getWrapperElement().classList.remove('CodeMirror-focused');
+}); 
+
+
+
+// Declare the themeName variable outside of the conditions
+var themeName;
+
+if (newTheme == "dark-theme") {
+  themeName = "dracula";
+} else if (newTheme == "light-theme") {
+  themeName = "eclipse";
+} else {
+  // Handle the case where the theme doesn't match any of the expected values
+  themeName = "eclipse"; // Provide a default theme in case of an unknown theme
+}
+
+
+        let timeoutId = null;
+
+        myEditor.on('change', onCodeChange);
+
+        autorun.addEventListener('change', onAutorunChange);
+        runButton.addEventListener('click', runCodeManually);
+
+        function onCodeChange() {
+            if (autorun.checked) {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(updateOutput, 0000000000);
+            }
+        }
+
+        function onAutorunChange() {
+            if (autorun.checked) {
+                updateOutput();
+            }
+        }
+
+        function runCodeManually() {
+            updateOutput();
+        }
+
+        function updateOutput() {
+            const code = myEditor.getValue();
+            iframe.srcdoc = code;
+        }
+
+        // Initial load
+        updateOutput();
+
+
+  
+
+
+/*
+previewbtn.addEventListener("click", function() {
+    var dataUri = "data:text/html;charset=utf-8," + encodeURIComponent(textarea.value);
+    var newTab = window.open(dataUri);
+
+    if (!newTab) {
+        alert("Pop-up blocked. Please allow pop-ups for this website.");
+    }
+});
+*/
+
+
+</script>
+</body>
+</html>
