@@ -701,7 +701,7 @@ iframe {
     transform: scale(0.0001);
 }
 
-        .previewbtn:hover::after {
+   .previewbtn:hover::after {
     transition-delay: 0.2s;
     opacity: 1;
     z-index: 10;
@@ -710,11 +710,11 @@ iframe {
         }
 
      .previewbtn:hover {
-     // transform: scale(1.1);
+     /* transform: scale(1.1); */
      }
     
      .previewbtn:active {
-    //  transform: scale(0.9);
+    /*  transform: scale(0.9); */
 }
 
 #previewbtn:active #previewiconarrow {
@@ -2183,6 +2183,55 @@ var toptoolmenu = document.querySelector("#toptoolmenu");
 var showtool = document.querySelector("#showtool");
 var showTools = document.querySelector("#showTools");
   
+let demo = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="HTML, CSS, JavaScript"> <!-- Define keywords for SEO -->
+    <meta name="description" content="Web description"> <!-- Page description -->
+    <meta name="author" content="John Doe"> <!-- Author information if you need them-->
+    <title>A Meaningful Page Title</title>
+    <!-- Add more elements to the head -->
+    <style>
+        /* Your styles go here */
+        
+    </style>
+  </head>
+  <body>
+    <!-- Your HTML elements goes here -->
+    <h1>Welcome to My Web Page</h1>
+    <p>This is a paragraph with some content.</p>
+      
+  </body>
+</html>
+
+  `
+      
+
+function autoSaveCode() {
+  const savedCode = localStorage.getItem("savedCode");
+  var currentCode = myEditor.getValue();
+  if (savedCode) {
+    if (!(savedCode == currentCode)) {
+      localStorage.setItem("savedCode", currentCode);
+    } else {
+    //  myEditor.setValue("Hi");
+    }
+  } else {
+      localStorage.setItem("savedCode", currentCode);
+    }
+  }
+
+  
+  function loadCode() {
+    var savedCodeAgain = localStorage.getItem("savedCode");
+    if (savedCodeAgain) {
+      myEditor.setValue(savedCodeAgain);
+  } else {
+    myEditor.setValue(demo);
+  }
+  }
   
 
 
@@ -3005,7 +3054,7 @@ if (newTheme == "dark-theme") {
         // Initial load
         updateOutput();
 
-
+        loadCode();
   
 
 
