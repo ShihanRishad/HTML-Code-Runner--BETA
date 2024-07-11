@@ -2207,11 +2207,7 @@ function autoSaveCode() {
   const savedCode = localStorage.getItem("savedCode");
   var currentCode = myEditor.getValue();
   if (savedCode) {
-    if (!(savedCode == currentCode)) {
       localStorage.setItem("savedCode", currentCode);
-    } else {
-    //  myEditor.setValue("Hi");
-    }
   } else {
       localStorage.setItem("savedCode", currentCode);
     }
